@@ -30,7 +30,7 @@ def run_beaver(tape,instruction,beaver_position,current_card,reps):
             beaver_position=beaver_position-1
         else:
             beaver_position+=1
-        current_card_no=instruction[current_card][value][2]
+        current_card=instruction[current_card][value][2]
     return tape,instruction,beaver_position,current_card
 file=open("input.txt","r")
 instruction_array=txt_array(file)
