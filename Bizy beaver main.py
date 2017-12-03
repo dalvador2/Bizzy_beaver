@@ -26,11 +26,12 @@ def run_beaver(tape,instruction,beaver_position,current_card,reps):
             break
         value=tape[beaver_position]
         tape[beaver_position]=instruction[current_card][value][0]
-        if instruction[current_card][value][0]==0:
+        if instruction[current_card][value][1]==0:
             beaver_position=beaver_position-1
         else:
             beaver_position+=1
         current_card=instruction[current_card][value][2]
+        print(beaver_position,current_card,value)
     return tape,instruction,beaver_position,current_card
 file=open("input.txt","r")
 instruction_array=txt_array(file)
