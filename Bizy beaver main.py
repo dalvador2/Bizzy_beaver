@@ -21,7 +21,7 @@ def txt_array(file):
     return array
      
 file=open("input.txt","r")
-array=txt_array(file)
+instruction_array=txt_array(file)
 tape=[]
 for i in range(10000):
     tape.append(0)
