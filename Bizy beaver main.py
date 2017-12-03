@@ -19,7 +19,12 @@ def txt_array(file):
             pass
         counter=(counter+1)%4
     return array
-        
+     
 file=open("input.txt","r")
 array=txt_array(file)
+tape=[]
+for i in range(10000):
+    tape.append(0)
+beaver_position=5000
+
 print(array)
