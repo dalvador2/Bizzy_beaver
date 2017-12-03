@@ -31,7 +31,6 @@ def run_beaver(tape,instruction,beaver_position,current_card,reps):
         else:
             beaver_position+=1
         current_card=instruction[current_card][value][2]
-        print(beaver_position,current_card,value)
     return tape,instruction,beaver_position,current_card
 file=open("input.txt","r")
 instruction_array=txt_array(file)
@@ -40,5 +39,5 @@ card_no=1
 for i in range(1000):
     tape.append(0)
 beaver_position=500
-tape,instruction_array,beaver_position,card_no=run_beaver(tape,instruction_array,beaver_position,card_no,10)
+tape,instruction_array,beaver_position,card_no=run_beaver(tape,instruction_array,beaver_position,card_no,10000)
 
