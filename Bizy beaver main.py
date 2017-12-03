@@ -52,3 +52,4 @@ while True:
     if finished:
         print("The beaver has finnished.")
         break
+file.close()
