@@ -21,8 +21,10 @@ def txt_array(file):
     return array
 
 def run_beaver(tape,instruction,beaver_position,current_card,reps):
+    finished=False
     for i in range(reps):
         if current_card==0:
+            finished=True
             break
         value=tape[beaver_position]
         tape[beaver_position]=instruction[current_card][value][0]
@@ -31,7 +33,7 @@ def run_beaver(tape,instruction,beaver_position,current_card,reps):
         else:
             beaver_position+=1
         current_card=instruction[current_card][value][2]
-    return tape,instruction,beaver_position,current_card
+    return tape,instruction,beaver_position,current_card,finished
 file=open("input.txt","r")
 instruction_array=txt_array(file)
 tape=[]
@@ -39,5 +41,14 @@ card_no=1
 for i in range(1000):
     tape.append(0)
 beaver_position=500
-tape,instruction_array,beaver_position,card_no=run_beaver(tape,instruction_array,beaver_position,card_no,10000)
-
+repss=""
+finished=False
+while True:
+    repss=input("How many cycles would you lke to perform?")
+    if repss=="exit":
+        break
+    reps=int(repss)
+    tape,instruction_array,beaver_position,card_no,finished=run_beaver(tape,instruction_array,beaver_position,card_no,reps)
+    if finished:
+        print("The beaver has finnished.")
+        break
